@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction System API</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Modern Futuristic Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+    
+    <div class="container">
+        <header class="glass-header">
+            <div class="header-content fade-in">
+                <h1>Nexus <span class="gradient-text">Pay</span></h1>
+                <p>Futuristic Transaction & Ranking Engine</p>
+            </div>
+        </header>
+
+        <main class="grid">
+            <!-- Transaction Card -->
+            <section class="glass-card fade-in delay-1">
+                <h2>Initiate Transfer</h2>
+                <form id="transaction-form">
+                    <div class="form-group">
+                        <label for="user-id">Entity ID</label>
+                        <input type="text" id="user-id" placeholder="e.g. NXS-1042" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Credits</label>
+                        <input type="number" id="amount" step="0.01" placeholder="0.00" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="idempotency-key">Security Key (Idempotency)</label>
+                        <div class="input-with-button">
+                            <input type="text" id="idempotency-key" required>
+                            <button type="button" id="generate-key-btn" class="glow-btn-secondary">Regenerate</button>
+                        </div>
+                    </div>
+                    <button type="submit" class="glow-btn-primary" id="submit-txn-btn">Execute Transaction</button>
+                </form>
+                <div id="transaction-result" class="result-box hidden"></div>
+            </section>
+
+            <!-- Summary Card -->
+            <section class="glass-card fade-in delay-2">
+                <h2>Entity Diagnostics</h2>
+                <div class="form-group">
+                    <label for="summary-user-id">Entity ID</label>
+                    <div class="input-with-button">
+                        <input type="text" id="summary-user-id" placeholder="e.g. NXS-1042">
+                        <button type="button" id="get-summary-btn" class="glow-btn-secondary">Scan</button>
+                    </div>
+                </div>
+                <div id="summary-result" class="result-box hidden"></div>
+            </section>
+
+            <!-- Ranking Board -->
+            <section class="glass-card full-width fade-in delay-3">
+                <div class="card-header-flex">
+                    <h2>Global Leaderboard</h2>
+                    <button type="button" id="refresh-ranking-btn" class="glow-btn-icon" title="Refresh">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    </button>
+                </div>
+                <div class="table-container">
+                    <table id="ranking-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Entity ID</th>
+                                <th>Total Credits</th>
+                                <th>Txn Count</th>
+                                <th>Power Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Populated dynamically by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
