@@ -2,7 +2,7 @@
 
 A backend service and live frontend demonstrating idempotent transaction processing, consistent balance/score updates, and a multi-factor ranking system.
 
-**Live demo:** `<add-your-vercel-url-here>`
+**Live demo:** `https://transaction-engine-pi.vercel.app/`
 **Video walkthrough:** `<add-your-video-link-here>`
 
 ---
